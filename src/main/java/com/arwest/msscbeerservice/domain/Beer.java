@@ -3,6 +3,7 @@ package com.arwest.msscbeerservice.domain;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -29,12 +30,18 @@ public class Beer {
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdDate;
+
+    @UpdateTimestamp
     private Timestamp lastModifiedDate;
+
     private String beerName;
+    private String beerStyle;
 
     @Column(unique = true)
     private Long upc;
+
     private BigDecimal price;
+
     private Integer minOnHand;
     private Integer quantityToBrew;
 
