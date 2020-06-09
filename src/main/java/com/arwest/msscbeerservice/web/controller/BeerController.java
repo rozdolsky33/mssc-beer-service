@@ -37,7 +37,7 @@ public class BeerController {
             beer.setBeerName(beerDto.getBeerName());
             beer.setBeerStyle(beerDto.getBeerStyle().name());
             beer.setPrice(beerDto.getPrice());
-            beer.setUpc(beerDto.getUps());
+            beer.setUpc(beerDto.getUpc());
 
             beerRepository.save(beer);
         });
