@@ -2,19 +2,20 @@ package com.arwest.msscbeerservice.bootstrap;
 
 import com.arwest.msscbeerservice.domain.Beer;
 import com.arwest.msscbeerservice.repositories.BeerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
-
+@RequiredArgsConstructor
 @Component
 public class BeerLoader implements CommandLineRunner {
 
-    private final BeerRepository beerRepository;
+    public static final String BEER_1_UPC = "0631234200036";
+    public static final String BEER_2_UPC = "0631234300019";
+    public static final String BEER_3_UPC = "0083783375213";
 
-    public BeerLoader(BeerRepository beerRepository) {
-        this.beerRepository = beerRepository;
-    }
+    private final BeerRepository beerRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -30,7 +31,7 @@ public class BeerLoader implements CommandLineRunner {
                     .beerStyle("IPA")
                     .quantityToBrew(200)
                     .minOnHand(12)
-                    .upc(337010000001L)
+                    .upc(BEER_1_UPC)
                     .price(new BigDecimal("12.95"))
                     .build());
 
@@ -39,8 +40,17 @@ public class BeerLoader implements CommandLineRunner {
                     .beerStyle("PALE_ALE")
                     .quantityToBrew(200)
                     .minOnHand(12)
-                    .upc(337010000002L)
-                    .price(new BigDecimal("11.95"))
+                    .upc(BEER_2_UPC)
+                    .price(new BigDecimal("14.95"))
+                    .build());
+
+            beerRepository.save(Beer.builder()
+                    .beerName("No Hammers On The Bar")
+                    .beerStyle("PALE_ALE")
+                    .quantityToBrew(200)
+                    .minOnHand(12)
+                    .upc(BEER_3_UPC)
+                    .price(new BigDecimal("10.95"))
                     .build());
         }
     }

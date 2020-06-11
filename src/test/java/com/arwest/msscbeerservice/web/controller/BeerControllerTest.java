@@ -1,5 +1,6 @@
 package com.arwest.msscbeerservice.web.controller;
 
+import com.arwest.msscbeerservice.bootstrap.BeerLoader;
 import com.arwest.msscbeerservice.domain.Beer;
 import com.arwest.msscbeerservice.repositories.BeerRepository;
 import com.arwest.msscbeerservice.web.model.BeerDto;
@@ -114,7 +115,7 @@ class BeerControllerTest {
                 .beerName("My Best Beer")
                 .beerStyle(BeerStyleEnum.ALE)
                 .price(new BigDecimal("3.99"))
-                .upc(121212121213232L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .build();
 
     }

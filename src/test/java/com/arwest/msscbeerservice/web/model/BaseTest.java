@@ -1,5 +1,6 @@
 package com.arwest.msscbeerservice.web.model;
 
+import com.arwest.msscbeerservice.bootstrap.BeerLoader;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,7 +23,7 @@ public class BaseTest {
                 .createdDate(OffsetDateTime.now())
                 .lastModifiedDate(OffsetDateTime.now())
                 .price(new BigDecimal("12.99"))
-                .upc(12121212121L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .quantityOnHand(44)
                 .myLocalDate(LocalDate.now())
                 .build();
