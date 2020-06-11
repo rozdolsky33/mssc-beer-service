@@ -31,11 +31,11 @@ public class BeerController {
         return new ResponseEntity(HttpStatus.CREATED);
 
     }
-    @PutMapping("{beerId}")
+    @PutMapping("/{beerId}")
     public ResponseEntity updateBeerById(@PathVariable("beerId") UUID beerId, @Validated @RequestBody BeerDto beerDto ){
         beerRepository.findById(beerId).ifPresent(beer -> {
             beer.setBeerName(beerDto.getBeerName());
-            beer.setBeerStyle(beerDto.getBeerStyle().name());
+            beer.setBeerStyle(beerDto.getBeerStyle());
             beer.setPrice(beerDto.getPrice());
             beer.setUpc(beerDto.getUpc());
 
